@@ -412,7 +412,7 @@ class StrategyBase(Node):
 
         vals = pd.DataFrame({x.name: x.positions for x in self.members
                              if isinstance(x, SecurityBase)})
-        self._positions = vals
+        self._positions = vals.fillna(0.0)
         return vals
 
     def setup(self, universe):
